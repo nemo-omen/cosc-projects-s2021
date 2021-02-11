@@ -132,8 +132,16 @@ public class Reader {
    * @param dirName  sets the name of the directory
    */
   File [] showDirectory(String dirName) {
+    System.out.println(dirName);
+    
     setWorkingDir(dirName);
     File dir = new File(dirName);
+    if(dir.exists()) {
+      System.out.println("Yeah, it's there.");
+    }else{
+      System.out.println("Can't find it.");
+      
+    }
     File [] currentDirFiles = dir.listFiles();
     System.out.printf("%nCurrent Directory:  %s%n", dir.getAbsolutePath());
     System.out.printf("%n%d files in directory%n%n", currentDirFiles.length);
