@@ -4,6 +4,9 @@
 
 ### Assignments
 
-[MineCraft Blocks](./Assignment01/MinecraftBlock)
+#### [MineCraft Blocks](./Assignment01/MinecraftBlock)
 
-[Count the Words](./Assignment02/CountWords)
+[Assignment Spec](./Assignment01/assignment.md)
+#### [Count the Words](./Assignment02/CountWords)
+
+[Assignment Spec](./Assignment01/assignment.md)
