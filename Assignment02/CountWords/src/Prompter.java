@@ -7,11 +7,6 @@ public class Prompter {
   Scanner input = new Scanner(System.in);
 
   /**
-   * Sets formatted string of available commands to display to the user
-   */
-  String commandDisplay = "Commands:  'report [file name]'  'ls'  'cd [directory]'  'exit'";
-
-  /**
    * Prompts user with given string
    * @param output  prints a prompt, surrounded by newlines, to the user
    */
