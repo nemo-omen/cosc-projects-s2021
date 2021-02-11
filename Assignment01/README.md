@@ -1,9 +1,13 @@
 # Minecraft Block - Readme
 
 Name: Jeff Caldwell
+
 Class: COSC 1174-48L
+
 Assignment: Minecraft Blocks
+
 Date: February 4, 2021
+
 
 ## Usage
 
