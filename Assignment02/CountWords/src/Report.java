@@ -64,6 +64,8 @@ public class Report {
 
     // if element at index is not null and matches the given string
     // increment the count at given index in wordInstances
+    
+    // thanks @unenergizer!
     for (int i = 0; i < words.length; i++) {
       if (words[i] != null && words[i].equals(upWord)) {
         // set unique to false so the next loop is ignored
