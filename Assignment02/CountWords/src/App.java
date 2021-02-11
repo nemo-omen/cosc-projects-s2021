@@ -1,3 +1,10 @@
+/********************************************
+ * Name: Jeff Caldwell
+ * Class: COSC 1174-48L
+ * Assignment: Count the Words
+ * Date: February 11, 2021
+********************************************/
+
 import java.io.File;
 import java.util.Scanner;
 import java.util.ArrayList;
