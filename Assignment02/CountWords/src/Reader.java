@@ -132,8 +132,6 @@ public class Reader {
    * @param dirName  sets the name of the directory
    */
   File [] showDirectory(String dirName) {
-    System.out.println(dirName);
-    
     setWorkingDir(dirName);
     File dir = new File(dirName);
     File [] currentDirFiles = dir.listFiles();
