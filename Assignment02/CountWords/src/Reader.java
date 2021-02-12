@@ -113,13 +113,22 @@ public class Reader {
    * @throws FileNotFoundException
    */
   ArrayList<String> readFileContents(File file) throws FileNotFoundException {
+    /**
+     * sets ArrayList to hold all lines returned from scanner
+     */
     ArrayList<String> lines = new ArrayList<String>();
+
     try {
       Scanner fileInput = new Scanner(file);
+
+      //as long as there's a nextLine, keep reading
       while (fileInput.hasNextLine()) {
+        // hold the line!
         String line = fileInput.nextLine();
+        // add it to the ArrayList above
         lines.add(line);
       }
+      // be tidy!
       fileInput.close();
     } catch(FileNotFoundException e) {
       System.out.println(e.getMessage());
@@ -133,16 +142,44 @@ public class Reader {
    */
   File [] showDirectory(String dirName) {
     setWorkingDir(dirName);
+
+    //get the current directory
     File dir = new File(dirName);
+
+    // get all files to list from current directory
     File [] currentDirFiles = dir.listFiles();
+
+    //an ArrayList to hold any of the listed files whose name ends with ".txt"
+    ArrayList<String> textFiles = new ArrayList<String>();
+
+    // tell the user what directory they're in
     System.out.printf("%nCurrent Directory:  %s%n", dir.getAbsolutePath());
-    System.out.printf("%n%d files in directory%n%n", currentDirFiles.length);
+
+    // make sure we only count ".txt" files to show file count
+    for(File fileObject: currentDirFiles) {
+      // get the current file's name
+      String currentFileName = fileObject.getName();
+      // get currentFileName's last 4 chars
+      String lastFourCharacters = currentFileName.substring(currentFileName.length() - 4);
+      //if it matches, add it to the ArrayList above
+      if(lastFourCharacters.equals(".txt")){
+        textFiles.add(currentFileName);
+      }
+    }
+    System.out.printf("%n%d files in directory%n%n", textFiles.size());
 
     for(File f : currentDirFiles) {
+
+      String currentFileName = f.getName();
+      // gets last 4 chars of fileName so we can exclude anything not ending with ".txt"
+      String lastFourCharacters = currentFileName.substring(currentFileName.length() - 4);
       if(f.isDirectory()) {
-        System.out.printf("Directory: %20s%n", f.getName());
-      } else {
+        // System.out.printf("Directory: %20s%n", f.getName());
+        continue;
+      } else if(lastFourCharacters.equals(".txt")){
         System.out.printf("File: %20s%n", f.getName());
+      }else{
+        continue;
       }
     }
     return currentDirFiles;
