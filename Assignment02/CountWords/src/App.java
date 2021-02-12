@@ -8,12 +8,25 @@
 import java.io.File;
 import java.util.Scanner;
 import java.util.ArrayList;
+
 public class App {
     public static Scanner input = new Scanner(System.in);
     public static Prompter prompt = new Prompter();
     public static Writer writer = new Writer();
     public static Reader reader = new Reader();
     public static void main(String[] args) throws Exception {
+        /**
+         * Creates new File object in order to get relative paths for the rest of the program
+         */
+        File currentDir = new File(".");
+
+        /**
+         * Sets the current path to work from
+         */
+
+         String currentPath = currentDir.getPath();
+
+
         /**
          * sets the fileName once chosen by the user
          */
@@ -49,7 +62,7 @@ public class App {
         prompt.say("* * * * * * *  WordReport  * * * * * * *");
 
         // show the user what files are available for use
-        reader.showDirectory("working");
+        reader.showDirectory(currentPath);
 
         // get filename from user
         workingFileName = (prompt.ask("\nEnter a file name to generate a word report: "));
@@ -68,7 +81,7 @@ public class App {
 
         // write the report to the filesystem as a .txt file using the generated ReportData object
         // return success or failure & a canonical path to the generated file
-        writeStatus = (writer.writeReport("working", workingFile.getName(), data));
+        writeStatus = (writer.writeReport(currentPath, workingFile.getName(), data));
 
         // wrap it up!
         if(writeStatus[1].equals("success")) {
