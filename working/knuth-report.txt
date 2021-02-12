@@ -1,0 +1,41 @@
+* * * * * * * * * * * * * * * * * * * * *
+Word                         Appearances
+* * * * * * * * * * * * * * * * * * * * *
+
+LET                                    2
+US                                     2
+CHANGE                                 2
+OUR                                    1
+TRADITIONAL                            2
+ATTITUDE                               1
+TO                                     1
+THE                                    5
+CONSTRUCTION                           1
+OF                                     1
+PROGRAMS                               2
+INSTEAD                                1
+IMAGINING                              1
+THAT                                   1
+MAIN                                   1
+TASK                                   1
+IS                                     1
+INSTRUCT                               1
+A                                      1
+COMPUTER                               2
+WHAT                                   2
+DO                                     2
+CONCENTRATE                            2
+RATHER                                 1
+ON                                     1
+EXPLAINING                             1
+HUMAN                                  1
+BEINGS                                 1
+WE                                     1
+WANT                                   1
+DONALD                                 1
+E                                      1
+KNUTH                                  1
+
+* * * * * * * * * * * * * * * * * * * * *
+     Thank you for using WordReport
+* * * * * * * * * * * * * * * * * * * * *
