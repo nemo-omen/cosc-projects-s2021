@@ -9,7 +9,7 @@ A simple demonstration of inheritence and polymorphism in Java classes using Min
 
 A demonstration of File I/O and error handling, This program reads a given text file and generates a report of the number of occurrances of each unique word.
 
-Reading is done using [java.util.Scanner](https://docs.oracle.com/javase/7/docs/api/java/util/Scanner.html) and writing is done using [java.io.PrintWriter](https://docs.oracle.com/javase/7/docs/api/java/io/PrintWriter.html) while all filesystem operations are done using the [java.io.File](https://docs.oracle.com/javase/7/docs/api/java/io/File.html).
+Reading is done using [java.util.Scanner](https://docs.oracle.com/javase/7/docs/api/java/util/Scanner.html) and writing is done using [java.io.PrintWriter](https://docs.oracle.com/javase/7/docs/api/java/io/PrintWriter.html) while all filesystem operations are done using [java.io.File](https://docs.oracle.com/javase/7/docs/api/java/io/File.html).
 
 [Assignment Spec](./Assignment02/assignment.md)
 
