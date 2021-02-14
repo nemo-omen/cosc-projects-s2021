@@ -1,9 +1,35 @@
 public class Truck extends Vehicle implements wayToDrive {
-  int numberOfEngines;
-  String name;
-  int numberOfPassengers;
-  String whereToDrive;
+  /**
+   * number of engines the vehicle has, more engines = faster!
+   */
+  private int numberOfEngines;
 
+  /**
+   * name of the vehicle
+   */
+  private String name;
+
+  /**
+   * How many passengers the vehicle can carry
+   */
+  private int numberOfPassengers;
+
+  /**
+   * Where this vehicle can operate
+   */
+  private String whereToDrive;
+
+  /**
+   * The type of steering device this vehicle uses
+   */
+  private SteeringDevice wheel = new SteeringDevice(new String[]{"left", "right", "straight"}, "steering wheel");
+
+  /**
+   * The ignition
+   */
+  private Ignition ignition = new Ignition();
+
+  
   public Truck(int numberOfEngines, String name, int numberOfPassengers, String whereToDrive) {
     this.numberOfEngines = numberOfEngines;
     this.name = name;
@@ -12,47 +38,45 @@ public class Truck extends Vehicle implements wayToDrive {
   }
 
   /**
-   * 
+   * Starts the truck
    */
-  public String howToStart() {
-    return "Turn the ignition key";
-  }
-
-  /**
-   * 
-   */
-  public String turnLeft() {
-    return "The truck turns to the left.";
-  }
-
-  /**
-   * 
-   */
-  public String turnRight() {
-    return "The truck turns to the right.";
-  }
-
-  /**
-   * 
-   */
-  public String goStraight() {
-    return "The truck moves forward in a more-or-less straight line.";
+  public void howToStart() {
+    ignition.start();
   }
 
   /**
    * Stops the truck
-   * @return String  a description of the truck stopping
    */
-  public String brake() {
-    return "The truck slows down and stops.";
+  public void howToStop() {
+    ignition.stop();
   }
 
   /**
-   * Starts the truck
-   * @return String  a description of the truck starting
+   * Turns the truck leftward
    */
-  public String start() {
-    return "The truck's engine rumbles to life and idles smoothly.";
+  public void turnLeft() {
+    wheel.steer("left");
+  }
+
+  /**
+   * Turns the truck rightward
+   */
+  public void turnRight() {
+    wheel.steer("right");
+  }
+
+  /**
+   * Turns the truck straight
+   */
+  public void goStraight() {
+    wheel.steer("straight");
+  }
+
+  /**
+   * Stops the truck
+   */
+  public void stop() {
+    System.out.println("The truck slows down and stops.");
   }
   
 }

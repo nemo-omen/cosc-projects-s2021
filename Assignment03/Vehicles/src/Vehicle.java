@@ -1,8 +1,23 @@
 public abstract class Vehicle {
-  String name;
-  int numberOfEngines;
-  int numberOfPassengers;
-  String whereToDrive;
+  /**
+   * number of engines the vehicle has, more engines = faster!
+   */
+  private int numberOfEngines;
+
+  /**
+   * name of the vehicle
+   */
+  private String name;
+
+  /**
+   * How many passengers the vehicle can carry
+   */
+  private int numberOfPassengers;
+
+  /**
+   * Where this vehicle can operate
+   */
+  private String whereToDrive;
 
   //getters and setters
   
@@ -79,8 +94,15 @@ public abstract class Vehicle {
   /**
    * Abstract method all vehicle classes will need to implement which
    * describes how to start the vehicle
-   * @return String  a description of how to start the vehicle
+   * @return String  a description of the vehicle starting
    */
-  public abstract String howToStart();
+  public abstract void howToStart();
+
+  /**
+   * Abstract method all vehicle classes will need to implement which
+   * describes how to stop the vehicle
+   * @return String  a description of the vehicle stopping
+   */
+  public abstract void howToStop();
   
 }

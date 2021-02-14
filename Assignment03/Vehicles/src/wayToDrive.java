@@ -4,17 +4,24 @@ public interface wayToDrive {
    * Describes left turning behavior
    * @return String  a description of the vehicle turning left
    */
-  String turnLeft();
+  void turnLeft();
 
   /**
    * Describes right turning behavior
    * @return String  a description of the vehicle turning right
    */
-  String turnRight();
+  void turnRight();
 
   /**
    * Describes forward movement
    * @return String  a description of the vehicle moving forward
    */
-  String goStraight();
+  void goStraight();
+
+  /**
+   * Describes stopping - because all vehicles should have a way to do this
+   * @return String a description of the vehicle stopping
+   */
+
+   void stop();
 }
