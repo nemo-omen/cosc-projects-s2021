@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fce788e4-7679-492a-b2d5-371454243c77" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/bin/App.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Prompter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Reader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Report.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/ReportData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Writer.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Assignment03/Vehicles/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Assignment03/Vehicles/src/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Assignment03/Vehicles/src/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Assignment03/Vehicles/src/Vehicle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

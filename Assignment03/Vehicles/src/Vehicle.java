@@ -19,6 +19,11 @@ public abstract class Vehicle {
    */
   private String whereToDrive;
 
+  /**
+   * The type of starter the vehicle has
+   */
+  private String starterType;
+
   //getters and setters
   
   public String getName() {
@@ -53,6 +58,14 @@ public abstract class Vehicle {
     this.whereToDrive = whereToDrive;
   }
 
+  public String getStarterType() {
+    return starterType;
+  }
+
+  public void setStarterType(String starterType) {
+    this.starterType = starterType;
+  }
+
   /**
    * Method which compares two vehicle's passenger limits and returns
    * the name of the one that holds more passengers
@@ -61,15 +74,15 @@ public abstract class Vehicle {
    *                  carries more passangers than the other
    */
   public String isLarger(Vehicle vehicle) {
-    String biggerVehicleName;
+    String largerVehicleName;
     if(getNumberOfPassengers() > vehicle.getNumberOfPassengers()) {
-      biggerVehicleName = getName();
+      largerVehicleName = getName();
     } else if (vehicle.getNumberOfPassengers() > getNumberOfPassengers()) {
-      biggerVehicleName = vehicle.getName();
+      largerVehicleName = vehicle.getName();
     } else {
-      biggerVehicleName = "neither";
+      largerVehicleName = "neither";
     }
-    return biggerVehicleName;
+    return largerVehicleName;
   }
 
   /**
@@ -96,13 +109,13 @@ public abstract class Vehicle {
    * describes how to start the vehicle
    * @return String  a description of the vehicle starting
    */
-  public abstract void howToStart();
+  public abstract void start();
 
   /**
    * Abstract method all vehicle classes will need to implement which
    * describes how to stop the vehicle
    * @return String  a description of the vehicle stopping
    */
-  public abstract void howToStop();
+  public abstract void stop();
   
 }

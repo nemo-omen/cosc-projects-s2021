@@ -5,6 +5,5 @@ public class App {
         truck.goStraight();
         truck.turnRight();
         truck.turnLeft();
-        
     }
 }

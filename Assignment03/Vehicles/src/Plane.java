@@ -1,5 +1,5 @@
-public class Truck extends Vehicle implements wayToDrive {
-  /**
+public class Plane extends Vehicle implements wayToDrive, wayToFly {
+   /**
    * number of engines the vehicle has, more engines = faster!
    */
   private int numberOfEngines;
@@ -22,7 +22,7 @@ public class Truck extends Vehicle implements wayToDrive {
   /**
    * The type of steering device this vehicle uses
    */
-  private SteeringDevice wheel = new SteeringDevice(new String[]{"left", "right", "straight"}, "steering wheel");
+  private SteeringDevice yoke = new SteeringDevice(new String[]{"left", "right", "straight", "up", "down"}, "steering wheel");
 
   /**
    * The ignition
@@ -30,7 +30,7 @@ public class Truck extends Vehicle implements wayToDrive {
   private Ignition ignition = new Ignition();
 
   
-  public Truck(int numberOfEngines, String name, int numberOfPassengers, String whereToDrive) {
+  public Plane(int numberOfEngines, String name, int numberOfPassengers, String whereToDrive) {
     this.numberOfEngines = numberOfEngines;
     this.name = name;
     this.numberOfPassengers = numberOfPassengers;
@@ -38,38 +38,51 @@ public class Truck extends Vehicle implements wayToDrive {
   }
 
   /**
-   * Starts the truck
+   * Starts the plane
    */
   public void start() {
     ignition.start();
   }
 
   /**
-   * Stops the truck
+   * Stops the plane
    */
   public void stop() {
     ignition.stop();
   }
 
   /**
-   * Turns the truck leftward
+   * Turns the plane leftward
    */
   public void turnLeft() {
-    wheel.steer("left");
+    yoke.steer("left");
   }
 
   /**
-   * Turns the truck rightward
+   * Turns the plane rightward
    */
   public void turnRight() {
-    wheel.steer("right");
+    yoke.steer("right");
   }
 
   /**
-   * Turns the truck straight
+   * Turns the plane straight
    */
   public void goStraight() {
-    wheel.steer("straight");
+    yoke.steer("straight");
   }
-  
+
+  /**
+   * Turns the plane upward
+   */
+  public void ascend() {
+    yoke.steer("up");
+  }
+
+  /**
+   * Turns plane downward
+   */
+  public void descend() {
+    yoke.steer("down");
+  }
 }
