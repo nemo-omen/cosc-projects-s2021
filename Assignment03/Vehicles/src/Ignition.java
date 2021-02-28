@@ -1,9 +1,9 @@
 public class Ignition {
-  void start() {
-    System.out.println("The vehicle turns on.");
+  void start(String vehicleName) {
+    System.out.printf("The %s turns on.%n", vehicleName);
   }
 
-  void stop() {
-    System.out.println("The vehicle turns off.");
+  void stop(String vehicleName) {
+    System.out.printf("The %s turns off.%n", vehicleName);
   }
 }

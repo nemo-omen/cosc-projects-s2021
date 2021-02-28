@@ -27,7 +27,7 @@ public abstract class Vehicle {
   //getters and setters
   
   public String getName() {
-    return name;
+    return this.name;
   }
 
   public void setName(String name) {
@@ -73,16 +73,16 @@ public abstract class Vehicle {
    * @return String  Vehicle.name or "neither", depending on whether one vehicle
    *                  carries more passangers than the other
    */
-  public String isLarger(Vehicle vehicle) {
-    String largerVehicleName;
-    if(getNumberOfPassengers() > vehicle.getNumberOfPassengers()) {
-      largerVehicleName = getName();
-    } else if (vehicle.getNumberOfPassengers() > getNumberOfPassengers()) {
-      largerVehicleName = vehicle.getName();
+  public String isLarger(Vehicle vehicleOne, Vehicle vehicleTwo) {
+    String largerVehicleReturn;
+    if(vehicleOne.getNumberOfPassengers() > vehicleTwo.getNumberOfPassengers()) {
+      largerVehicleReturn = "The " + vehicleOne.getName() + " is larger than the " + vehicleTwo.getName();
+    } else if (vehicleTwo.getNumberOfPassengers() > vehicleOne.getNumberOfPassengers()) {
+      largerVehicleReturn = "The " + vehicleTwo.getName() + " is larger than the " + vehicleOne.getName();
     } else {
-      largerVehicleName = "neither";
+      largerVehicleReturn = "Both the " + vehicleOne.getName() + " and the " + vehicleTwo.getName() + " carry the same number of passengers";
     }
-    return largerVehicleName;
+    return largerVehicleReturn;
   }
 
   /**
@@ -92,16 +92,16 @@ public abstract class Vehicle {
    * @return String  Vehicle.name or "neither", depending on whether one vehicle
    *                  has more engines than the other
    */
-  public String isFaster(Vehicle vehicle) {
-    String fasterVehicleName;
-    if(getNumberOfEngines() > vehicle.getNumberOfEngines()) {
-      fasterVehicleName = getName();
-    } else if (vehicle.getNumberOfEngines() > getNumberOfEngines()) {
-      fasterVehicleName = vehicle.getName();
+  public String isFaster(Vehicle vehicleOne, Vehicle vehicleTwo) {
+    String fasterVehicleReturn;
+    if(vehicleOne.getNumberOfEngines() > vehicleTwo.getNumberOfEngines()) {
+      fasterVehicleReturn = "The " + vehicleOne.getName() + " is faster than the " + vehicleTwo.getName();
+    } else if (vehicleTwo.getNumberOfEngines() > vehicleOne.getNumberOfEngines()) {
+      fasterVehicleReturn = "The " + vehicleTwo.getName() + " is faster than the " + vehicleOne.getName();
     } else {
-      fasterVehicleName = "neither";
+      fasterVehicleReturn = "Both the " + vehicleOne.getName() + " and the " + vehicleTwo.getName() + " are the same speed.";
     }
-    return fasterVehicleName;
+    return fasterVehicleReturn;
   }
 
   /**

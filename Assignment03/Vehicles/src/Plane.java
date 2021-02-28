@@ -22,7 +22,7 @@ public class Plane extends Vehicle implements wayToDrive, wayToFly {
   /**
    * The type of steering device this vehicle uses
    */
-  private SteeringDevice yoke = new SteeringDevice(new String[]{"left", "right", "straight", "up", "down"}, "steering wheel");
+  private SteeringDevice yoke = new SteeringDevice(new String[]{"left", "right", "straight", "up", "down"}, "yoke");
 
   /**
    * The ignition
@@ -37,18 +37,66 @@ public class Plane extends Vehicle implements wayToDrive, wayToFly {
     this.whereToDrive = whereToDrive;
   }
 
+  public int getNumberOfEngines() {
+    return numberOfEngines;
+  }
+
+  public void setNumberOfEngines(int numberOfEngines) {
+    this.numberOfEngines = numberOfEngines;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public int getNumberOfPassengers() {
+    return numberOfPassengers;
+  }
+
+  public void setNumberOfPassengers(int numberOfPassengers) {
+    this.numberOfPassengers = numberOfPassengers;
+  }
+
+  public String getWhereToDrive() {
+    return whereToDrive;
+  }
+
+  public void setWhereToDrive(String whereToDrive) {
+    this.whereToDrive = whereToDrive;
+  }
+
+  public SteeringDevice getYoke() {
+    return yoke;
+  }
+
+  public void setYoke(SteeringDevice yoke) {
+    this.yoke = yoke;
+  }
+
+  public Ignition getIgnition() {
+    return ignition;
+  }
+
+  public void setIgnition(Ignition ignition) {
+    this.ignition = ignition;
+  }  
+
   /**
    * Starts the plane
    */
   public void start() {
-    ignition.start();
+    ignition.start(name);
   }
 
   /**
    * Stops the plane
    */
   public void stop() {
-    ignition.stop();
+    ignition.stop(name);
   }
 
   /**

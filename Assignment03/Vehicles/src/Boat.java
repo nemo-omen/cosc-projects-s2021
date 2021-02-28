@@ -1,4 +1,4 @@
-public class Truck extends Vehicle implements wayToDrive {
+public class Boat extends Vehicle implements wayToDrive {
   /**
    * number of engines the vehicle has, more engines = faster!
    */
@@ -22,7 +22,7 @@ public class Truck extends Vehicle implements wayToDrive {
   /**
    * The type of steering device this vehicle uses
    */
-  private SteeringDevice wheel = new SteeringDevice(new String[]{"left", "right", "straight"}, "steering wheel");
+  private SteeringDevice rudder = new SteeringDevice(new String[]{"left", "right", "straight"}, "rudder");
 
   /**
    * The ignition
@@ -30,19 +30,11 @@ public class Truck extends Vehicle implements wayToDrive {
   private Ignition ignition = new Ignition();
 
   
-  public Truck(int numberOfEngines, String name, int numberOfPassengers, String whereToDrive) {
+  public Boat(int numberOfEngines, String name, int numberOfPassengers, String whereToDrive) {
     this.numberOfEngines = numberOfEngines;
     this.name = name;
     this.numberOfPassengers = numberOfPassengers;
     this.whereToDrive = whereToDrive;
-  }
-
-  public int getNumberOfEngines() {
-    return numberOfEngines;
-  }
-
-  public void setNumberOfEngines(int numberOfEngines) {
-    this.numberOfEngines = numberOfEngines;
   }
 
   public String getName() {
@@ -69,12 +61,12 @@ public class Truck extends Vehicle implements wayToDrive {
     this.whereToDrive = whereToDrive;
   }
 
-  public SteeringDevice getWheel() {
-    return wheel;
+  public SteeringDevice getRudder() {
+    return rudder;
   }
 
-  public void setWheel(SteeringDevice wheel) {
-    this.wheel = wheel;
+  public void setRudder(SteeringDevice rudder) {
+    this.rudder = rudder;
   }
 
   public Ignition getIgnition() {
@@ -86,38 +78,46 @@ public class Truck extends Vehicle implements wayToDrive {
   }
 
   /**
-   * Starts the truck
+   * Starts the boat
    */
   public void start() {
     ignition.start(name);
   }
 
   /**
-   * Stops the truck
+   * Stops the boat
    */
   public void stop() {
     ignition.stop(name);
   }
 
   /**
-   * Turns the truck leftward
+   * Turns the boat leftward
    */
   public void turnLeft() {
-    wheel.steer("left");
+    rudder.steer("left");
   }
 
   /**
-   * Turns the truck rightward
+   * Turns the boat rightward
    */
   public void turnRight() {
-    wheel.steer("right");
+    rudder.steer("right");
   }
 
   /**
-   * Turns the truck straight
+   * Turns the boat straight
    */
   public void goStraight() {
-    wheel.steer("straight");
+    rudder.steer("straight");
+  }
+
+  public int getNumberOfEngines() {
+    return numberOfEngines;
+  }
+
+  public void setNumberOfEngines(int numberOfEngines) {
+    this.numberOfEngines = numberOfEngines;
   }
   
 }
