@@ -97,6 +97,7 @@ public class Reader {
 
       // honestly, I'm not sure why this isn't being re-set when this catch recursively calls the method
       // so... I'm resetting it here beforehand
+      
       file = new File(workingDir + "/" + replacementFileName);
 
       // recursion!

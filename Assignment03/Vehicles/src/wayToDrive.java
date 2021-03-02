@@ -1,3 +1,9 @@
+/********************************************
+ * Name: Jeff Caldwell
+ * Class: COSC 1174-48L
+ * Assignment: Vehicles
+ * Date: February 28, 2021
+********************************************/
 public interface wayToDrive {
 
   /**

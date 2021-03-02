@@ -1,5 +1,11 @@
+/********************************************
+ * Name: Jeff Caldwell
+ * Class: COSC 1174-48L
+ * Assignment: Vehicles
+ * Date: February 28, 2021
+********************************************/
 import java.util.ArrayList;
-public class SteeringDevice implements Steering{ 
+public class SteeringDevice implements wayToSteer{ 
   ArrayList<String> possibleDirections = new ArrayList<String>();
   String name;
 

@@ -1,3 +1,9 @@
+/********************************************
+ * Name: Jeff Caldwell
+ * Class: COSC 1174-48L
+ * Assignment: Vehicles
+ * Date: February 28, 2021
+********************************************/
 public abstract class Vehicle {
   /**
    * number of engines the vehicle has, more engines = faster!
@@ -22,7 +28,7 @@ public abstract class Vehicle {
   /**
    * The type of starter the vehicle has
    */
-  private String starterType;
+  private StarterType starterType;
 
   //getters and setters
   
@@ -58,11 +64,11 @@ public abstract class Vehicle {
     this.whereToDrive = whereToDrive;
   }
 
-  public String getStarterType() {
+  public StarterType getStarterType() {
     return starterType;
   }
 
-  public void setStarterType(String starterType) {
+  public void setStarterType(StarterType starterType) {
     this.starterType = starterType;
   }
 

@@ -1,6 +1,13 @@
+/********************************************
+ * Name: Jeff Caldwell
+ * Class: COSC 1174-48L
+ * Assignment: Vehicles
+ * Date: February 28, 2021
+********************************************/
+
 public class App {
     public static void main(String[] args){
-        Truck truck = new Truck(1, "Chevy", 3, "roads");
+        Truck truck = new Truck(1, "Chevy", 3, "roads", new StarterType("key"));
         truck.start();
         truck.goStraight();
         truck.turnRight();
@@ -9,17 +16,16 @@ public class App {
         System.out.println("");
         
 
-        Boat boat = new Boat(2, "Motorboat", 5, "lakes");
+        Boat boat = new Boat(2, "Yacht", 20, "sea", new StarterType("ignition system"));
         boat.start();
         boat.goStraight();
         boat.turnLeft();
         boat.turnRight();
         boat.stop();
-        System.out.println(boat.getName());
         System.out.println("");
         
 
-        Plane plane = new Plane(3, "Passenger Jet", 200, "sky");
+        Plane plane = new Plane(4, "Passenger Jet", 200, "sky", new StarterType("master engine switch"));
         plane.start();
         plane.goStraight();
         plane.ascend();
