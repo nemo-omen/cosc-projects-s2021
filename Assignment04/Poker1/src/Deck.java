@@ -6,7 +6,7 @@ public class Deck {
 
   public Deck(int maxCards) {
     this.maxCards = maxCards;
-    // this.cardNumberList = generateNumberList(maxCards);
+    this.cardNumberList = generateNumberList(maxCards);
   }
 
   public int getMaxCards() {
@@ -48,9 +48,6 @@ public class Deck {
     if(!cardNumberList.contains(number)) {
       cardNumberList.add(number);
     }
-    // } else {
-    //   this.addToList(getRand(1, this.maxCards), cardNumberList);
-    // }
     return cardNumberList;
   }
 
@@ -72,6 +69,16 @@ public class Deck {
     }
 
     return numberList;
+  }
+
+  public ArrayList<Integer> draw(int numberOfCards) {
+    ArrayList<Integer> drawnCards = new ArrayList<Integer>();
+    
+    for(int i = 0; i <= numberOfCards; i++) {
+      drawnCards.add(this.cardNumberList.get(i));
+    }
+    
+    return drawnCards;
   }
   
 }

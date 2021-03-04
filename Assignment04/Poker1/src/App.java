@@ -1,89 +1,83 @@
 import java.util.ArrayList;
 import javafx.application.Application;
-import javafx.collections.ObservableList;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.TilePane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.image.Image;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.image.ImageView;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.HPos;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.geometry.VPos;
+import javafx.scene.paint.Color;
 
 
-public class App {
+public class App extends Application{
 
-    public static Deck deck = new Deck(52);
+    public static Deck deck = new Deck(54);
+    public static Hand hand = new Hand(deck.draw(5));
 
-    // ArrayList<ImageView> hand = new ArrayList<ImageView>();
-
-    // public ArrayList<ImageView> shuffle() {
-    //     ArrayList<Integer> randCardList = shuffler.generateNumberList(5);
-
-    //     ArrayList<Image> images = new ArrayList<Image>();
-
-    //     if(hand.size() > 0) {
-    //         hand.clear();
-    //     }
-
-    //     for(int i = 0; i < randCardList.size(); i++) {
-    //         images.add(new Image("img/" + String.valueOf(randCardList.get(i)) + ".png"));
-    //         hand.add(new ImageView(images.get(i)));
-    //     }
-
-    //     return hand;
-    // }
-
-    // @Override
-    // public void start(Stage primaryStage) {
-        // ArrayList<ImageView> hand = shuffle();
-
-        // Button shuffleButton = new Button("Shuffle");
-
-        // GridPane pane = new GridPane();
-        // pane.setHgap(10);
-        // pane.setVgap(20);
-
-        // ColumnConstraints seventyTwo = new ColumnConstraints(72);
-        // pane.getColumnConstraints().addAll(seventyTwo, seventyTwo, seventyTwo, seventyTwo, seventyTwo);
-        // pane.setAlignment(Pos.CENTER);
-
-        // for(int i = 0; i < hand.size(); i++) {
-        //     pane.add(hand.get(i), i, 0, 1, 1);
-        // }
-
-        // pane.add(shuffleButton, 2, 1, 1, 1);
+    @Override
+    public void start(Stage primaryStage) {
         
-        // // pane.getChildren().add(windowButton);
+        ArrayList<ImageView> images = hand.getHand();
 
-        // shuffleButton.setOnAction(new EventHandler<ActionEvent>() {
-        //     @Override
-        //     public void handle(ActionEvent event) {
-        //         shuffle();
+        Button shuffleButton = new Button("Shuffle");
 
-        //         pane.getChildren().removeAll();
-        //         for(int i = 0; i < hand.size(); i++) {
-        //             pane.add(hand.get(i), i, 0, 1, 1);
-        //         }
-        //     }
-        // });
+        GridPane pane = new GridPane();
 
-        // Scene scene = new Scene(pane, 430, 186);
-        // primaryStage.setTitle("First JavaFX");
-        // primaryStage.setScene(scene);
-        // primaryStage.show();
+        HBox cardBox = new HBox(20);
+
+        VBox buttonBox = new VBox();
+
+        cardBox.setPadding(new Insets(20,20,20,20));
+        cardBox.setAlignment(Pos.CENTER);
+        
+        buttonBox.setPadding(new Insets(0,20,20,20));
+        buttonBox.setAlignment(Pos.CENTER);
+        buttonBox.getChildren().add(shuffleButton);
+
+        ColumnConstraints fullWidth = new ColumnConstraints(480);
+        pane.getColumnConstraints().addAll(fullWidth);
+        pane.setAlignment(Pos.CENTER);
+        pane.setBackground(new Background(new BackgroundFill(Color.web("#bababa"), CornerRadii.EMPTY, Insets.EMPTY)));
+
+        cardBox.getChildren().addAll(images);
+
+        pane.add(cardBox, 0, 0, 1, 1);
+        pane.add(buttonBox, 0, 1, 1, 1);
+
+        shuffleButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+                deck.shuffle();
+
+                hand = new Hand(deck.draw(5));
+                
+                ArrayList<ImageView> newImages = hand.getHand();
+                
+                cardBox.getChildren().clear();
+
+                cardBox.getChildren().addAll(newImages);
+
+            }
+        });
+
+        Scene scene = new Scene(pane, 480, 186);
+        primaryStage.setTitle("Shuffler");
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
+
     public static void main(String[] args) throws Exception {
-        // Application.launch(args);
-        System.out.println(deck.getMaxCards());
+        Application.launch(args);
     }
+    
 }
