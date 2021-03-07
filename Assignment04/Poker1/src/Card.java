@@ -1,9 +1,27 @@
+/********************************************
+ * Name: Jeff Caldwell
+ * Class: COSC 1174-48L
+ * Assignment: Poker 1
+ * Date: March 7, 2021
+********************************************/
+
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class Card {
+  /**
+   * Sets the card's number - this coincides with the number of the image which will represent the card
+   */
   private int cardNumber;
+
+  /**
+   * Sets the path to the image which will represent the card
+   */
   private Image cardImage;
+
+  /**
+   * Sets the ImageView object that will finally be displayed
+   */
   ImageView cardView;
 
   public Card(int cardNumber) {

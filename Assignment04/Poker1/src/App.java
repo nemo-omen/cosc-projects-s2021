@@ -1,3 +1,10 @@
+/********************************************
+ * Name: Jeff Caldwell
+ * Class: COSC 1174-48L
+ * Assignment: Poker 1
+ * Date: March 7, 2021
+********************************************/
+
 import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -19,8 +26,13 @@ import javafx.scene.paint.Color;
 
 
 public class App extends Application{
+    // this project is split into three functioning classes:
+    // 1. The deck, which holds the list of numbers for each card and also implements a shuffle() method that randomizes that list
+    // 2. the Hand, which is essentially a list of the first `x` cards taken from an instantiated Deck object
+    // 3. The Card, holds a reference to the Image/ImageView for final display to client
 
     public static Deck deck = new Deck(54);
+
     public static Hand hand = new Hand(deck.draw(5));
 
     @Override
@@ -82,7 +94,7 @@ public class App extends Application{
         primaryStage.show();
 
         // events
-        
+
         // shuffle button listener
         shuffleButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
