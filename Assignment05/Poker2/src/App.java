@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBase;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.ColumnConstraints;
@@ -54,10 +55,16 @@ public class App extends Application{
         GridPane pane = new GridPane();
         
         // create a new scene and add the pane to it
-        Scene scene = new Scene(pane, 480, 186);
+        Scene scene = new Scene(pane, 480, 246);
 
-        // this is the section where all cards will be displayed
+        // this is the section where all cards and HOLD buttons will be displayed
         HBox cardBox = new HBox(20);
+
+        // new section for 'HOLD' buttons
+        // TODO -- instead of adding all of the buttons to an HBox
+        // create a new VBox for both the card Image and the button
+        // and add that to the current cardBox HBox
+        HBox holdButtonBox = new HBox(43);
 
         // this section only holds the shuffle button
         VBox buttonBox = new VBox();
@@ -67,11 +74,38 @@ public class App extends Application{
         ColumnConstraints fullWidth = new ColumnConstraints(480);
 
         //add Card ImageViews to images ArrayList
-        cards.forEach((card) -> images.add(card.getCardView()));
+        // cards.forEach((card) -> images.add(card.getCardView()));
+
+        //create a new VBox forEach card
+        // TODO - extract this into its own method
+        cards.forEach((card) -> {
+            VBox cardVbox = new VBox(20);
+            Button holdButton = new Button("HOLD");
+            
+            holdButton.setOnAction((ActionEvent event) -> {
+                System.out.println(holdButton);
+            });
+            
+            cardVbox.setPadding(new Insets(0, 20, 20, 0));
+            cardVbox.setAlignment(Pos.CENTER);
+            
+            cardVbox.getChildren().add(card.getCardView());
+            cardVbox.getChildren().add(holdButton);
+            
+            cardBox.getChildren().add(cardVbox);
+        });
+        
+
+        // add a button forEach Card in cards
+        // cards.forEach((card) -> holdButtonBox.getChildren().add(new Button("Hold")));
 
         // set some padding and alignment for Hbox and Vbox 
         cardBox.setPadding(new Insets(20,20,20,20));
         cardBox.setAlignment(Pos.CENTER);
+
+        holdButtonBox.setPadding(new Insets(0, 20, 20, 0));
+        holdButtonBox.setAlignment(Pos.CENTER);
+
         buttonBox.setPadding(new Insets(0,20,20,20));
         buttonBox.setAlignment(Pos.CENTER);
 
@@ -84,11 +118,12 @@ public class App extends Application{
         pane.setBackground(new Background(new BackgroundFill(Color.web("#bababa"), CornerRadii.EMPTY, Insets.EMPTY)));
 
         // add the card images to the Hbox
-        cardBox.getChildren().addAll(images);
+        // cardBox.getChildren().addAll(images);
 
         // add Hbox and Vbox to the pane
         pane.add(cardBox, 0, 0, 1, 1);
-        pane.add(buttonBox, 0, 1, 1, 1);
+        pane.add(holdButtonBox, 0, 1, 1, 1);
+        pane.add(buttonBox, 0, 2, 1, 1);
 
         // set the window title
         primaryStage.setTitle("Shuffler");
@@ -129,6 +164,18 @@ public class App extends Application{
 
             }
         });
+
+        // hold buttons listener
+        // this will loop through each hold button in the holdButtonBox
+        // and attach the listener to it
+        // holdButtonBox.getChildren().forEach((button) -> {
+
+            // the forEach above returns a list of Nodes rather than a list of Buttons
+            // so we're recasting those Nodes as Buttons so we can attach an event handler to each
+        //     ((Button) button).setOnAction((ActionEvent event) -> {
+        //         System.out.println(button);
+        //     });
+        // });
     }
 
     public static void main(String[] args) throws Exception {
