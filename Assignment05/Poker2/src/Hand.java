@@ -40,8 +40,12 @@ public class Hand {
     }
   }
 
-  public void setHeldCard(Card card) {
-
+  public void tradeHand(ArrayList<Card> currentCards) {
+    currentCards.forEach((card) -> {
+      if(!card.held) {
+        card = new Card()
+      }
+    });
   }
   
 }
